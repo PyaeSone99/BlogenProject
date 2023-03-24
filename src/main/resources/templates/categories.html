@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html th:replace="Layout/mainLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+  <header class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1><i class="bi bi-folder"></i> Categories</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="py-4 mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-8">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search Categories" aria-label="Search Categories" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="background-color: lavender">
+            <div class="card-header" >
+              <h4>Latest Categories</h4>
+            </div>
+            <table class="table table-striped shadow-lg" style="background-color: lavender">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Date Posted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="cat : ${categories}">
+                  <td th:text="${cat.id}"></td>
+                  <td th:text="${cat.title}"></td>
+                  <td th:text="${cat.datePosted}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
